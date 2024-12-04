@@ -1,0 +1,85 @@
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+line-length = 88
+indent-width = 4
+
+target-version = "py312"
+
+[lint]
+select = [
+    "E",     # pycodestyle
+    "F",     # Pyflakes
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "SIM",   # flake8-simplify
+    "I",     # isort
+    "D",     # pydocstyle
+    "C90",   # complexity
+    "C4",    # Comprehensions
+    "N",     # Naming - PEP8 naming conventions
+    "TCH",   # TypeCheck
+    "TD",    # TODO
+    "FIX",   # FIXME
+    "DJ",    # Django
+    "S",     # Bandit
+    "ASYNC", # Async
+    "ANN",   # Annotations
+    "T20",   # Print
+]
+
+# NOTE: ANN002 and ANN003 are disabled because they warn about
+#   a common pattern (*args, **kwargs) that is used in many places.
+ignore = ["E401", "ANN101", "ANN002", "ANN003", "FIX002"]
+
+fixable = ["ALL"]
+unfixable = []
+
+# Unused variables OK when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[lint.per-file-ignores]
+"**/migrations/*.py" = ["D101", "E501"]
+"__init__.py" = ["D100", "D104", "F401", "F403"]
+"manage.py" = ["ANN"]
+"tests.py" = ["S101", "D", "ANN201", "S311"]
+"settings.py" = ["E501"]
+"apps.py" = ["D"]
+"admin.py" = ["D"]
+
+[lint.pydocstyle]
+convention = "google"
