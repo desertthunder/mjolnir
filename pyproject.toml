@@ -2,17 +2,26 @@
 name = "mjolnir"
 version = "0.1.0"
 description = ""
-authors = ["Owais Jamil <desertthunder.dev@gmail.com>"]
+authors = ["Owais J <desertthunder.dev@gmail.com>"]
 readme = "README.md"
+
+[tool.poetry.scripts]
+mjolnir = "mjolnir:run_app"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 click = "^8.1.7"
-
+genanki = "^0.13.1"
+markdown = "^3.7"
+pydantic = "^2.10.3"
+beautifulsoup4 = "^4.12.3"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.13.0"
 pytest = "^8.3.4"
+types-markdown = "^3.7.0.20241204"
+types-beautifulsoup4 = "^4.12.0.20241020"
+types-click = "^7.1.8"
 
 [build-system]
 requires = ["poetry-core"]
